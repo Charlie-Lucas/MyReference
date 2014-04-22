@@ -2,10 +2,12 @@ services:
     sonata.admin.post:
         class: Acme\DemoBundle\Admin\PostAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
+            - name: sonata.admin
+              manager_type: orm
+              group: "acme.admin.group.content"
+              label: "acme.admin.model.post"
+              label_catalogue: "AcmeDemoBundle"
         arguments:
             - ~
             - Acme\DemoBundle\Entity\Post
-            - AcmeDemoBundle:PostAdmin
-        calls:
-            - [ setTranslationDomain, [AcmeDemoBundle]]
+            - ~
