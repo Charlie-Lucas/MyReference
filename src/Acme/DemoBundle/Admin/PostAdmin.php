@@ -13,7 +13,7 @@ class PostAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Post Title'))
-            ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
+            ->add('author', 'entity', array('class' => 'Application\Sonata\UserBundle\Entity\User'))
             ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
         ;
     }
