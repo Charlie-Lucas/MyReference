@@ -14,5 +14,21 @@
             <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
             <argument type="service" id="twig.extension.acme.demo" />
         </service>
+        <service id="sonata.media.provider.vimeo" class="Sonata\MediaBundle\Provider\VimeoProvider">
+            <tag name="sonata.media.provider" />
+            <argument>sonata.media.provider.vimeo</argument>
+            <argument type="service" id="sonata.media.filesystem.local" />
+            <argument type="service" id="sonata.media.cdn.server" />
+            <argument type="service" id="sonata.media.generator.default" />
+            <argument type="service" id="sonata.media.thumbnail.format" />
+            <argument type="service" id="sonata.media.buzz.browser" />
+            <argument type="service" id="sonata.media.metadata.proxy" />
+            <call method="setTemplates">
+                <argument type="collection">
+                    <argument key='helper_thumbnail'>SonataMediaBundle:Provider:thumbnail.html.twig</argument>
+                    <argument key='helper_view'>SonataMediaBundle:Provider:view_vimeo.html.twig</argument>
+                </argument>
+            </call>
+        </service>
     </services>
 </container>
