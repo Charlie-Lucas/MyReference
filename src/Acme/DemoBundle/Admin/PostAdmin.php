@@ -32,7 +32,7 @@ class PostAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('slug')
+            ->add('body')
             ->add('author')
         ;
     }
