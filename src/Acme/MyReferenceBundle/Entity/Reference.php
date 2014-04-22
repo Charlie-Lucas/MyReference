@@ -22,7 +22,9 @@ class Reference
     private $id;
 
     /**
-    * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
@@ -34,9 +36,7 @@ class Reference
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $image;
 
