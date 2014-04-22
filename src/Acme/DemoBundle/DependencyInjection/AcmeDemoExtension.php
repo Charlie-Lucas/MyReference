@@ -15,7 +15,7 @@ class AcmeDemoExtension extends Extension
         $loader->load('services.yml');
         $loader->load('admin.yml');
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('admin.xml');
+        $loader->load('services.xml');
     }
 
     public function getAlias()

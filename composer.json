@@ -26,7 +26,7 @@
 	"knplabs/knp-menu-bundle":"1.1.*",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/easy-extends-bundle": "dev-master",
-        "sonata-project/media-bundle": "dev-master"
+        "sonata-project/media-bundle": "2.2.8"
 	},
     "scripts": {
         "post-install-cmd": [
