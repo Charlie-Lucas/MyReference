@@ -11,3 +11,15 @@ services:
             - ~
             - Acme\DemoBundle\Entity\Post
             - ~
+    sonata.admin.reference:
+        class: Acme\MyReferenceBundle\Admin\ReferenceAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Content"
+              label: "Reference"
+              label_catalogue: "AcmeMyReferenceBundle"
+        arguments:
+            - ~
+            - Acme\MyReferenceBundle\Entity\Reference
+            - ~
