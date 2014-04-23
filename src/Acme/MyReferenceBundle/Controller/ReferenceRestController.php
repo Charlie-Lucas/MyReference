@@ -36,7 +36,7 @@ class ReferenceRestController extends Controller
     public function getReferencesAction()
     {
     	$em  =$this->getDoctrine()->getManager();
-    	$references = $em->getRepository('Reference')->findAll();
+    	$references = $em->getRepository('AcmeMyReferenceBundle:Reference')->findAll();
     /*	if(!($references)){
     		throw $this->createNotFoundException();
     	}
