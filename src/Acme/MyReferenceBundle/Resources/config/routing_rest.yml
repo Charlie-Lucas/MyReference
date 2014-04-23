@@ -1,0 +1,4 @@
+reference : 
+  type: rest
+  resource:     "Acme\MyReferenceBundle\Controller\ReferenceRestController"
+  name_prefix:  api_

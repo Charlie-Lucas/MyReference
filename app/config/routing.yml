@@ -20,3 +20,7 @@ media:
 reference:
     resource: '@AcmeMyReferenceBundle/Resources/config/routing.yml'
     prefix: /reference
+rest : 
+  type : rest 
+  resource : "routing_rest.yml"
+  prefix : /api
