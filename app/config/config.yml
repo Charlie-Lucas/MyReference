@@ -87,7 +87,7 @@ sonata_user:
         menu:
             - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
             - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
-        #    - { route: 'sonata_customer_addresses', label: 'link_list_addresses', domain: 'SonataCustomerBundle'}
+            - { route: 'sonata_customer_addresses', label: 'link_list_addresses', domain: 'SonataCustomerBundle'}
             - { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
             - { route: 'sonata_order_index', label: 'order_list', domain: 'SonataOrderBundle'}
 
@@ -112,33 +112,33 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
 sonata_admin:
     templates:
-        layout:  SonataAdminBundle::standard_layout.html.twig
-        ajax:    SonataAdminBundle::ajax_layout.html.twig
-        list:    SonataAdminBundle:CRUD:list.html.twig
-        show:    SonataAdminBundle:CRUD:show.html.twig
-        edit:    SonataAdminBundle:CRUD:edit.html.twig
-        history: SonataAdminBundle:CRUD:history.html.twig
-        preview: SonataAdminBundle:CRUD:preview.html.twig
-        delete:  SonataAdminBundle:CRUD:delete.html.twig
-        batch:   SonataAdminBundle:CRUD:list__batch.html.twig
-        acl:     SonataAdminBundle:CRUD:acl.html.twig
-        action:  SonataAdminBundle:CRUD:action.html.twig
-        select:  SonataAdminBundle:CRUD:list__select.html.twig
-        dashboard:           SonataAdminBundle:Core:dashboard.html.twig
-        search:              SonataAdminBundle:Core:search.html.twig
-        batch_confirmation:  SonataAdminBundle:CRUD:batch_confirmation.html.twig
-        inner_list_row:      SonataAdminBundle:CRUD:list_inner_row.html.twig
-        base_list_field:     SonataAdminBundle:CRUD:base_list_field.html.twig
-        list_block:          SonataAdminBundle:Block:block_admin_list.html.twig
-        user_block:          SonataAdminBundle:Core:user_block.html.twig
-        add_block:           SonataAdminBundle:Core:add_block.html.twig
-        pager_links:         SonataAdminBundle:Pager:links.html.twig
-        pager_results:       SonataAdminBundle:Pager:results.html.twig
-        history_revision_timestamp:  SonataAdminBundle:CRUD:history_revision_timestamp.html.twig
-        search:              SonataAdminBundle:Core:search.html.twig
-        short_object_description:    SonataAdminBundle:Helper:short-object-description.html.twig
-        search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
-        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+        # layout:  SonataAdminBundle::standard_layout.html.twig
+        # ajax:    SonataAdminBundle::ajax_layout.html.twig
+        # list:    SonataAdminBundle:CRUD:list.html.twig
+        # show:    SonataAdminBundle:CRUD:show.html.twig
+        # edit:    SonataAdminBundle:CRUD:edit.html.twig
+        # history: SonataAdminBundle:CRUD:history.html.twig
+        # preview: SonataAdminBundle:CRUD:preview.html.twig
+        # delete:  SonataAdminBundle:CRUD:delete.html.twig
+        # batch:   SonataAdminBundle:CRUD:list__batch.html.twig
+        # acl:     SonataAdminBundle:CRUD:acl.html.twig
+        # action:  SonataAdminBundle:CRUD:action.html.twig
+        # select:  SonataAdminBundle:CRUD:list__select.html.twig
+        # dashboard:           SonataAdminBundle:Core:dashboard.html.twig
+        # search:              SonataAdminBundle:Core:search.html.twig
+        # batch_confirmation:  SonataAdminBundle:CRUD:batch_confirmation.html.twig
+        # inner_list_row:      SonataAdminBundle:CRUD:list_inner_row.html.twig
+        # base_list_field:     SonataAdminBundle:CRUD:base_list_field.html.twig
+        # list_block:          SonataAdminBundle:Block:block_admin_list.html.twig
+        # user_block:          SonataAdminBundle:Core:user_block.html.twig
+        # add_block:           SonataAdminBundle:Core:add_block.html.twig
+        # pager_links:         SonataAdminBundle:Pager:links.html.twig
+        # pager_results:       SonataAdminBundle:Pager:results.html.twig
+        # history_revision_timestamp:  SonataAdminBundle:CRUD:history_revision_timestamp.html.twig
+        # search:              SonataAdminBundle:Core:search.html.twig
+        # short_object_description:    SonataAdminBundle:Helper:short-object-description.html.twig
+        # search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
+        # dashboard: SonataAdminBundle:Core:dashboard.html.twig
     dashboard:
         blocks:
             -
@@ -169,18 +169,15 @@ fos_user:
         user_manager: sonata.user.orm.user_manager
 
 sonata_media:
-    db_driver: doctrine_orm
-    class:
-        media:              Application\Sonata\MediaBundle\Entity\Media
-        gallery:            Application\Sonata\MediaBundle\Entity\Gallery
-        gallery_has_media:  Application\Sonata\MediaBundle\Entity\GalleryHasMedia
-
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
     default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
     contexts:
         default:  # the default context is mandatory
-            download:
-                strategy: sonata.media.security.superadmin_strategy
-                mode: http
             providers:
                 - sonata.media.provider.dailymotion
                 - sonata.media.provider.youtube
@@ -191,158 +188,19 @@ sonata_media:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
 
-        tv:
-            download:
-                strategy: sonata.media.security.superadmin_strategy
-                mode: http
-            providers:
-                - sonata.media.provider.dailymotion
-                - sonata.media.provider.youtube
-
-            formats:
-                cinema:     { width: 1850 , quality: 768}
-                grandmatv:  { width: 640 , quality: 480}
-
-        news:
-            download:
-                strategy: sonata.media.security.superadmin_strategy
-                mode: http
-            providers:
-                - sonata.media.provider.dailymotion
-                - sonata.media.provider.youtube
-                - sonata.media.provider.image
-                - sonata.media.provider.file
-
-            formats:
-                small: { width: 150 , quality: 95}
-                big:   { width: 500 , quality: 90}
-
     cdn:
         server:
-            path:      /uploads/media # http://media.sonata-project.org
-
-        panther:
-            path:       http://domain.pantherportal.com/uploads/media
-            site_id:
-            password:
-            username:
-
-        fallback:
-            master:     sonata.media.cdn.panther
-            fallback:   sonata.media.cdn.server
+            path: /MAMP/fichiers/Sonata/sonata_project/web/uploads/media # http://media.sonata-project.org/
 
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     false
-
-        ftp:
-            directory:
-            host:
-            username:
-            password:
-            port:     21
-            passive:  false
-            create:   false
-            mode:     2 # this is the FTP_BINARY constant. see: http://php.net/manual/en/ftp.constants.php
-
-        s3:
-            bucket:
-            accessKey:
-            secretKey:
-            create:         false
-            region:         s3.amazonaws.com # change if not using US Standard region
-            storage:        standard # can be one of: standard or reduced
-            acl:            public # can be one of: public, private, open, auth_read, owner_read, owner_full_control
-            encryption:     aes256 # can be aes256 or not set
-            cache_control:  max-age=86400 # or any other
-            meta:
-                key1:       value1 #any amount of metas(sent as x-amz-meta-key1 = value1)
-
-        mogilefs:
-            hosts:      []
-            domain:
-
-        replicate:
-            master: sonata.media.adapter.filesystem.s3
-            slave: sonata.media.adapter.filesystem.local
-
-        rackspace:
-           url:
-           secret:
-             username:
-             apiKey:
-           region:
-           containerName: media
-           create_container: false
-
-        openstack:
-           url:
-           secret:
-             username:
-             password:
-           region:
-           containerName: media
-           create_container: false
-
-    providers:
-        file:
-            service:    sonata.media.provider.file
-            resizer:    false
-            filesystem: sonata.media.filesystem.local
-            cdn:        sonata.media.cdn.server
-            generator:  sonata.media.generator.default
-            thumbnail:  sonata.media.thumbnail.format
-            allowed_extensions: ['pdf', 'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pttx', 'odt', 'odg', 'odp', 'ods', 'odc', 'odf', 'odb', 'csv', 'xml']
-            allowed_mime_types: ['application/pdf', 'application/x-pdf', 'application/rtf', 'text/html', 'text/rtf', 'text/plain']
-
-        image:
-            service:    sonata.media.provider.image
-            resizer:    sonata.media.resizer.simple # sonata.media.resizer.square
-            filesystem: sonata.media.filesystem.local
-            cdn:        sonata.media.cdn.server
-            generator:  sonata.media.generator.default
-            thumbnail:  sonata.media.thumbnail.format
-            allowed_extensions: ['jpg', 'png', 'jpeg']
-            allowed_mime_types: ['image/pjpeg', 'image/jpeg', 'image/png', 'image/x-png']
-
-        youtube:
-            service:    sonata.media.provider.youtube
-            resizer:    sonata.media.resizer.simple
-            filesystem: sonata.media.filesystem.local
-            cdn:        sonata.media.cdn.server
-            generator:  sonata.media.generator.default
-            thumbnail:  sonata.media.thumbnail.format
-            html5: false
-
-        dailymotion:
-            service:    sonata.media.provider.dailymotion
-            resizer:    sonata.media.resizer.simple
-            filesystem: sonata.media.filesystem.local
-            cdn:        sonata.media.cdn.server
-            generator:  sonata.media.generator.default
-            thumbnail:  sonata.media.thumbnail.format
-
-    buzz:
-        connector:  sonata.media.buzz.connector.file_get_contents # sonata.media.buzz.connector.curl
-
 fos_rest:
-    param_fetcher_listener: true
-    body_listener: true
     format_listener: true
     view:
-        view_response_listener: 'force'
-        formats:
-            xml: true
-            json : true
-        templating_formats:
-            html: true
-        force_redirects:
-            html: true
-        failed_validation: HTTP_BAD_REQUEST
-        default_engine: twig
-    routing_loader:
-        default_format: json
+        view_response_listener: true
+
 sensio_framework_extra:
     view:    { annotations: false }
     router:  { annotations: true }
