@@ -3,12 +3,18 @@
 namespace Acme\MyReferenceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\VirtualProperty;
 
 /**
  * Reference
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Acme\MyReferenceBundle\Entity\ReferenceRepository")
+ *
+ * @ExclusionPolicy("all")
  */
 class Reference
 {
@@ -18,6 +24,7 @@ class Reference
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
@@ -25,6 +32,7 @@ class Reference
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Expose
      */
     private $title;
 
@@ -32,11 +40,13 @@ class Reference
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Expose
      */
     private $description;
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     *
      */
     private $image;
 
@@ -44,6 +54,7 @@ class Reference
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="date")
+     * @Expose
      */
     private $date;
 
