@@ -33,12 +33,10 @@ class ReferenceRestController extends Controller
     {
     	$em  =$this->getDoctrine()->getManager();
     	$references = $em->getRepository('AcmeMyReferenceBundle:Reference')->findAll();
-    	if(!is_object($references)){
+    	if(!($references)){
     		throw $this->createNotFoundException();
     	}
-    	foreach ($references as $reference) {
-    		$array[] = array($reference);
-    	}
-    	return 	json_encode($array);
+  
+    	return 	$references;
     }
 }
