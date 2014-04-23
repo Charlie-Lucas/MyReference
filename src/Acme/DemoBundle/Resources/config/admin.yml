@@ -9,3 +9,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.reference:
+        class: Acme\MyReferenceBundle\Admin\ReferenceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Reference" }
+        arguments:
+            - ~
+            - Acme\MyReferenceBundle\Entity\Reference
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeMyReferenceBundle]]

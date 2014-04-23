@@ -16,8 +16,8 @@ services:
         tags:
             - name: sonata.admin
               manager_type: orm
-              group: "Content"
-              label: "Reference"
+              group: "acme.admin.group.content"
+              label: "acme.admin.model.reference"
               label_catalogue: "AcmeMyReferenceBundle"
         arguments:
             - ~
