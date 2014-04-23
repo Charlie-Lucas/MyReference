@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a88fa144883f8d7a44108b5eb90637cc",
+    "hash": "6e52f4de632788fd32bb72c2aa32ca37",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3681,7 +3681,8 @@
         "sonata-project/easy-extends-bundle": 20,
         "jms/serializer-bundle": 20,
         "jms/security-extra-bundle": 20,
-        "symfony/security": 20
+        "symfony/security": 20,
+        "nelmio/api-doc-bundle": 0
     },
     "platform": {
         "php": ">=5.3.3"
