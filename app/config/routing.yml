@@ -19,4 +19,5 @@ media:
     prefix: /media
 
 reference:
-    ressource: '@AmeMyReferenceBundle/Resources/config/routing.yml'
+    resource: '@AcmeMyReferenceBundle/Resources/config/routing.yml'
+    prefix:   /reference
