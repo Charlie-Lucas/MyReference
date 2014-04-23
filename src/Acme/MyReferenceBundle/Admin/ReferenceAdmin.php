@@ -13,7 +13,7 @@ class ReferenceAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'string', array('label' => 'Reference Title'))
+            ->add('title', 'text', array('label' => 'Reference Title'))
             ->add('image', 'entity', array('class' => 'Application\Sonata\MediaBundle\Entity\Media'))
             ->add('description')
             ->add('date','date')
@@ -27,7 +27,7 @@ class ReferenceAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('description')
-            ->add('image', 'entity', array('class' => 'Application\Sonata\MediaBundle\Entity\Media'))
+         //   ->add('image', 'entity', array('class' => 'Application\Sonata\MediaBundle\Entity\Media'))
         ;
     }
 
@@ -36,7 +36,7 @@ class ReferenceAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('slug')
+            ->add('image', 'entity', array('class' => 'Application\Sonata\MediaBundle\Entity\Media'))
             ->add('description')
         ;
     }

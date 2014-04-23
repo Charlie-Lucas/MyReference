@@ -17,7 +17,6 @@ gallery:
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
-
 reference:
     resource: '@AcmeMyReferenceBundle/Resources/config/routing.yml'
-    prefix:   /reference
+    prefix: /reference

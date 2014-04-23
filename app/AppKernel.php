@@ -28,7 +28,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            new Acme\MyReferenceBundle\AcmeMyReferenceBundle(),
+            new Acme\MyReferenceBundle\AcmeMyReferenceBundle()
             
         );
 
