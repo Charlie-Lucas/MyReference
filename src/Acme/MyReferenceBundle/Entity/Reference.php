@@ -13,8 +13,9 @@ use JMS\Serializer\Annotation\VirtualProperty;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Acme\MyReferenceBundle\Entity\ReferenceRepository")
- *
+ * 
  * @ExclusionPolicy("all")
+ * 
  */
 class Reference
 {
@@ -25,6 +26,7 @@ class Reference
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @Expose
+     * @Groups({"reference"})
      */
     private $id;
 
@@ -33,6 +35,7 @@ class Reference
      *
      * @ORM\Column(name="title", type="string", length=255)
      * @Expose
+     * @Groups({"reference"})
      */
     private $title;
 
@@ -41,12 +44,14 @@ class Reference
      *
      * @ORM\Column(name="description", type="text")
      * @Expose
+     * @Groups({"reference"})
      */
     private $description;
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
-     * 
+     * @Groups({"sonata_api_read"})
+     * @Expose
      */
     private $image;
 
@@ -55,6 +60,7 @@ class Reference
      *
      * @ORM\Column(name="date", type="date")
      * @Expose
+     * @Groups({"reference"})
      */
     private $date;
 
