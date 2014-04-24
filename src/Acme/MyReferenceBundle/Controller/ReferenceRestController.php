@@ -7,24 +7,31 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Acme\MyReferenceBundle\Entity\Reference;
 
-
 class ReferenceRestController extends Controller
 {
 	/**
-	 * @param Reference $reference
+     * Get Reference action
+     * @var integer $id Id of the Reference
 	 * @return array
 	 * @View()
-	 * @ParamConverter("reference", class="\Acme\MyReferenceBundle\Entity\Reference")
+	 * 
 	 */
-	public function getReferenceAction(Reference $reference){
-  	/*	$em  =$this->getDoctrine()->getManager();
-    	$reference = $em->getRepository('AcmeMyReferenceBundle:Reference')->findOneByTitle($title);
-    	if(!is_object($reference)){
-    		throw $this->createNotFoundException();
-    	}
-    	return $reference;
-    */
-    	return array('reference' => $reference);
+	public function getReferenceAction($id){
+  	    $em  =$this->getDoctrine()->getManager();
+    	$reference = $em->getRepository('AcmeMyReferenceBundle:Reference')->findOneById($id);
+        $image = $em->getRepository('ApplicationSonataMediaBundle:Media')->find($reference->getImage());
+        $image = $image->getId();
+        $image = $em->getRepository('ApplicationSonataMediaBundle:Media')->findOneById($image);
+    	// if(!is_object($image)){
+    	// 	throw $this->createNotFoundException();
+    	// }
+    	//return $reference;
+    
+    	return array('reference' => $reference,
+                     'image'     => $image,
+
+
+            );
     }
 
     /**

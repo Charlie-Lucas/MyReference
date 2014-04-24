@@ -2,3 +2,7 @@ reference :
   type: rest
   resource:     "Acme\MyReferenceBundle\Controller\ReferenceRestController"
   name_prefix:  api_
+reference_api_media:
+  type:         rest
+  name_prefix:  api_
+  resource:     "@SonataMediaBundle/Resources/config/routing/api.xml"

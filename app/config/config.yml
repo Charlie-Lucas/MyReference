@@ -29,6 +29,7 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
 
 # Assetic Configuration
 assetic:
@@ -202,8 +203,12 @@ fos_rest:
     format_listener: true
     view:
         view_response_listener: 'force'
+    body_converter:
+        enabled: true
+        validate: true
 
 sensio_framework_extra:
     view:    { annotations: false }
     router:  { annotations: true }
-nelmio_api_doc: ~
+    request: { converters: true }
+
